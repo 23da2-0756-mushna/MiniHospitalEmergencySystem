@@ -20,4 +20,41 @@ public class TreatmentStack {
 
         top = newNode;
     }
+
+    public String pop() {
+
+        if (top == null) {
+            System.out.println("Treatment history is empty.");
+            return null;
+        }
+
+        String record = top.treatmentRecord;
+
+        top = top.next;
+
+        return record;
+    }
+
+    public void displayTreatments() {
+
+        if (top == null) {
+            System.out.println("Treatment history is empty.");
+            return;
+        }
+
+        Node current = top;
+
+        System.out.println("\n--- Treatment History ---");
+
+        while (current != null) {
+
+            System.out.println(current.treatmentRecord);
+
+            current = current.next;
+        }
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
 }
